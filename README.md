@@ -1,4 +1,6 @@
 # makesite
+![makesite](https://user-images.githubusercontent.com/86271004/180330635-4c7f7994-ca33-413e-a33a-ea09ab2753d7.png)
+
 makesite is a Bash script that automatically installs WordPress. It uses the cPanel API and wp-cli to automate every step of the process, from database creation to the actual install.
 
 For this script to work, it must be run on a cPanel server with wp-cli installed. This script does not work with cPanel on CentOS 6 due to slight API differences.
