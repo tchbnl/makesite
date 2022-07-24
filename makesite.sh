@@ -1,7 +1,7 @@
 #!/bin/bash
 # makesite: Complete WordPress installation from the shell
 # Nathan Paton <nathanpat@inmotionhosting.com>
-# v0.3 Updated on 7/21/2022
+# v0.3 Updated on 7/23/2022
 #
 # Releases
 # * v0.1: Initial release
@@ -10,9 +10,9 @@
 # * v0.3: (Optionally) delete created database and user if install fails
 # * v1.0: Successfully brews a cup of coffee in 5 minutes
 
-# Just in case this wasn't unset last time
+# Just in case this weren't unset last time
 if [[ $VERBOSE || $ROLLBACK ]]; then
-    unset VERBOSE; unset ROLLBAK
+    unset VERBOSE; unset ROLLBACK
 fi
 
 # Support for fancy text
@@ -30,7 +30,7 @@ USAGE: makesite [-r]
     -h --help           Show this message and exit.
     -v --version        Show version information and exit."
 
-MSG_VERSION="makesite 0.3 (Updated on 7/21/2022)"
+MSG_VERSION="makesite 0.3 (Updated on 7/23/2022)"
 MSG_ERROR="Something went wrong. Check errors and attempt again or perform a manual install."
 MSG_ROLLBACK="Rollback was selected. The created database and user have been deleted."
 
@@ -54,12 +54,12 @@ while [[ $# -gt 0 ]]; do
             exit
         ;;
         -*|--*)
-            echo "Unknon option $1"
+            echo "Unknown option $1"
             echo "$MSG_HELP"
             exit
         ;;
         *)
-            echo "Unknon option $1"
+            echo "Unknown option $1"
             echo "$MSG_HELP"
             exit
         ;;
@@ -279,5 +279,5 @@ echo -e "${TEXT_BLD}* Password:${TEXT_RST} $WP_PASS"
 
 # Final cleanup attempt
 if [[ $VERBOSE || $ROLLBACK ]]; then
-    unset VERBOSE; unset ROLLBAK
+    unset VERBOSE; unset ROLLBACK
 fi

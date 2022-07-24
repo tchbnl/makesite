@@ -1,7 +1,7 @@
 makesite()
 {
 if [[ $VERBOSE || $ROLLBACK ]]; then
-    unset VERBOSE; unset ROLLBAK
+unset VERBOSE; unset ROLLBACK
 fi
 TEXT_BLD="\e[1m"
 TEXT_RED="\e[31m"
@@ -15,7 +15,7 @@ USAGE: makesite [-r]
     -h --help           Show this message and exit.
     -v --version        Show version information and exit."
 
-MSG_VERSION="makesite 0.3 (Updated on 7/21/2022)"
+MSG_VERSION="makesite 0.3 (Updated on 7/23/2022)"
 MSG_ERROR="Something went wrong. Check errors and attempt again or perform a manual install."
 MSG_ROLLBACK="Rollback was selected. The created database and user have been deleted."
 while [[ $# -gt 0 ]]; do
@@ -37,12 +37,12 @@ echo "$MSG_VERSION"
 return
 ;;
 -*|--*)
-echo "Unknon option $1"
+echo "Unknown option $1"
 echo "$MSG_HELP"
 return
 ;;
 *)
-echo "Unknon option $1"
+echo "Unknown option $1"
 echo "$MSG_HELP"
 return
 ;;
@@ -60,6 +60,7 @@ echo -e "${TEXT_BLD}Result:${TEXT_RST}"
 echo -e "\u2937 $dbDeleteDb\n"
 echo -e "---\n"
 fi
+
 dbDeleteUser="$(uapi Mysql delete_user name="$DB_PREFIX$DB_USER")"
 if [[ $VERBOSE = "true" ]]; then
 echo -e "${TEXT_BLD}Command:${TEXT_RST}"
@@ -68,7 +69,9 @@ echo -e "${TEXT_BLD}Result:${TEXT_RST}"
 echo -e "\u2937 $dbDeleteUser\n"
 echo -e "---\n"
 fi
+
 echo "$MSG_ROLLBACK"
+
 unset ROLLBACK
 fi
 }
@@ -205,6 +208,6 @@ echo -e "${TEXT_BLD}* Dashboard:${TEXT_RST} $WP_URL/wp-admin/"
 echo -e "${TEXT_BLD}* Username:${TEXT_RST} $WP_USER"
 echo -e "${TEXT_BLD}* Password:${TEXT_RST} $WP_PASS"
 if [[ $VERBOSE || $ROLLBACK ]]; then
-unset VERBOSE; unset ROLLBAK
+unset VERBOSE; unset ROLLBACK
 fi
 }
