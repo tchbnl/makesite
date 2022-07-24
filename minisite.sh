@@ -60,7 +60,6 @@ echo -e "${TEXT_BLD}Result:${TEXT_RST}"
 echo -e "\u2937 $dbDeleteDb\n"
 echo -e "---\n"
 fi
-
 dbDeleteUser="$(uapi Mysql delete_user name="$DB_PREFIX$DB_USER")"
 if [[ $VERBOSE = "true" ]]; then
 echo -e "${TEXT_BLD}Command:${TEXT_RST}"
@@ -69,9 +68,7 @@ echo -e "${TEXT_BLD}Result:${TEXT_RST}"
 echo -e "\u2937 $dbDeleteUser\n"
 echo -e "---\n"
 fi
-
 echo "$MSG_ROLLBACK"
-
 unset ROLLBACK
 fi
 }
