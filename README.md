@@ -11,7 +11,7 @@ The current version is **v0.3** and was updated on **7/23/2022**. You can check 
 
 **Sometimes the `wp config` setup fails and can't connect to the database. What gives?**
 
-There seems to be an issue with the cPanel API where creating a database user with a password doesn't always _set_ that password. It doesn't seem to be a formatting issue, and the API returns no errors when it happens. I've tried to work around this by setting the password twice, but no dice. The best I can recommend is to run the install again, and it should work. This is mainly the reason why I added the rollback feature.
+There seems to be an issue with the cPanel API where creating a database user with a password doesn't always _set_ that password. It doesn't seem to be a formatting issue, and the API returns no errors when it happens. I've tried to work around this by setting the password twice, but no dice. The best I can recommend is to run the install again, and it should work. This is mainly the reason why I added the rollback and verbose features - making it easier to investigate the issue and avoid repeated trips into cPanel.
 
 I'm thinking of some possible solutions. One is, if the config process fails, reset the password and try again. If it still fails, give up.
 
