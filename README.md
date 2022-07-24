@@ -9,6 +9,12 @@ Since v0.2 makesite offers a detailed verbose mode that outputs every command ru
 
 The current version is **v0.3** and was updated on **7/23/2022**. You can check the version in the script with `-v` or `--version`. The latest code between releases will usually include fixes and small improvements, and is safe to use - breaking changes are held back until the next version release.
 
+**Sometimes the `wp config` setup fails and can't connect to the database. What gives?**
+
+There seems to be an issue with the cPanel API where creating a user with a password doesn't always _set_ that password. It doesn't seem to be a formatting issue, and the API returns no errors when it happens. I've tried to work around this by setting the password twice, but no dice. The best I can recommend is to run the install again, and it should work. This is mainly the reason why I added the rollback feature.
+
+I'm thinking of some possible solutions. One is, if the config process fails, set the reset password and try again. If it still fails, give up.
+
 ## minisite
 minisite is makesite without the need to download and execute a script. It's the same code stripped of all comments and excess spacing for compactness, and wrapped between `makesite()` and brackets. It's meant to be run directly from the shell.
 
