@@ -5,6 +5,10 @@ makesite is a Bash script that automatically installs WordPress. It uses the cPa
 
 For this script to work, it must be run on a cPanel server with wp-cli installed. This script does not work with cPanel on CentOS 6 due to slight API differences.
 
+Since v0.2 makesite offers a detailed verbose mode that outputs every command run and the response. You can access it with `-V` or `--verbose`. v0.3 adds a rollback feature than can be useful to clean up if the install fails for some reason - if the install fails at a wp-cli step, the created database and its user can be automatically deleted to avoid switching back and forth between the shell and cPanel. This is available with the `-r` or `--rollback` option.
+
+The current version is **v0.3** and was updated on **7/23/2022**. You can check the version in the script with `-v` or `--version`. The latest code between releases will usually include fixes and small improvements, and is safe to use - breaking changes are held back until the next version release.
+
 ## minisite
 minisite is makesite without the need to download and execute a script. It's the same code stripped of all comments and excess spacing for compactness, and wrapped between `makesite()` and brackets. It's meant to be run directly from the shell.
 
